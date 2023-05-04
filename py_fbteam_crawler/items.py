@@ -12,6 +12,23 @@ class PyFbteamCrawlerItem(scrapy.Item):
     pass
 
 
+class MangaItem(scrapy.Item):
+    title = scrapy.Field()
+    image_url = scrapy.Field()
+    viewers = scrapy.Field()
+    date = scrapy.Field()
+    url = scrapy.Field()
+    chapters = scrapy.Field()
+
+
+class MangaChapterItem(scrapy.Item):
+    title = scrapy.Field()
+    url = scrapy.Field()
+    chap_images = scrapy.Field()
+    chap_viewers = scrapy.Field()
+    chap_date = scrapy.Field()
+
+
 class LeagueItem(scrapy.Item):
     name = scrapy.Field()
     logo = scrapy.Field()

@@ -14,7 +14,8 @@ class LeaguesSpider(scrapy.Spider):
         yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response, **kwargs):
-        self.log(response.css)
+        leagues = response.xpath('//div[@class="leagues-container"]/div/div')
+        for league in leagues:
+            url = league.xpath('./div/@href').get()
+            self.log(f'League URL: {url}')
 
-        # leagues = response.selector.xpath('//div[@class="leagues-container"]')
-        # self.log(f'Found {len(leagues)} leagues')
